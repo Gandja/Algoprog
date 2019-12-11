@@ -1,0 +1,2 @@
+# Algoprog
+🧠Solution algorithms tasks
