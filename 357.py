@@ -12,20 +12,18 @@
 
 """
 
-n = input().split()
+inputData = input().split()
+n = int(inputData[0])
+m = int(inputData[1])
 arr = []
-global m 
-m = 0
-for i in range(int(n[0])):
+arr2 = [[]]
+global maxElement 
+maxElement = 0
+for i in range(int(n)):
 	arr.append([ int(j) for j in input().split()])
-for i in range(0,int(n[0])):
-	for j in range(0,int(n[1])):
-		if(int(arr[i][j]) > m):
-			m = arr[i][j]
-for i in range(0,int(n[0])):
-	for j in range(0,int(n[1])):
-		if(int(arr[i][j]) == m):
-			k = i
-			l = j			
-print(m)			
-print(k , l)
+for i in range(0,int(n)):
+	for j in range(0,int(m)):
+		if(int(arr[i][j]) > maxElement):
+			maxElement = arr[i][j]
+			arr2[m] = (i,j)
+print(arr2)
