@@ -1,2 +1,3 @@
 # Algoprog
-I commit to this reposytory my solitons tasks from https://algoprog.ru/
+I commit to this 
+repository my solitons tasks from https://algoprog.ru/
