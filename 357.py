@@ -11,41 +11,25 @@
 Если в массиве несколько максимальных элементов, то нужно вывести минимальный номер строки, в которой встречается такой элемент, а если в этой строке таких элементов несколько, то нужно вывести минимальный номер столбца. Не забудьте, что все строки и столбцы нумеруются с 0.
 
 """
-def isInt(value):
-	try:
-		int(value)
-		return True
-	except:
-		ValueError
-		return False
-		
 inputData = input().split()
-#check array not empty
-if inputData and len(inputData) == 2 and isInt(inputData[0]) and isInt(inputData[1]):
-	n = int(inputData[0])
-	m = int(inputData[1])
-	if n > 0 and m > 0:
-		startArray = []
-		arrayForIndex = list()
-		global maxElement 
-		maxElement = 0
-		#read data
-		for i in range(n):
-			startArray.append([ j for j in input().split()])	
-		#find max element
-		for i in range(0,int(n)):
-			if len(startArray[i]) < m:
-				exit(0)
-			for j in range(0,len(startArray[i])):
-				#check input data
-				if startArray[i][j] and isInt(startArray[i][j]):
-					#write index in maxElement array index
-					if int(startArray[i][j]) > int(maxElement):
-						maxElement = startArray[i][j]
-						arrayForIndex.insert(int(maxElement),[i,j]);
-				else:
-					exit(0)
+n = int(inputData[0])
+m = int(inputData[1])
+startArray = []
+global maxElement
+global k
+global f
+for i in range(n):
+	startArray.append([ j for j in input().split()])
+maxElement = startArray[0][0]
+k = 0
+f = 0
+for i in range(0,int(n)):
+	for j in range(0,len(startArray[i])):
+		if int(startArray[i][j]) > int(maxElement):
+			maxElement = startArray[i][j]
+			k = i
+			f = j
+print(maxElement)
+print(k,f)
 
-		print(maxElement)
-		print(arrayForIndex[len(arrayForIndex)-1][0],arrayForIndex[len(arrayForIndex)-1][1])
 
