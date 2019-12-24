@@ -14,20 +14,24 @@ C. Удаление дубликатов
 */
 
 import java.util.Scanner;
-import java.util.HashSet;
-import java.util.Iterator;
 
-public class B {
-	public static void main ( String args []) {
-		Scanner sc = new Scanner(System.in);
-		HashSet<Integer> hs = new HashSet<Integer>();
-		int n = sc.nextInt();
-		for(int i = 0; i < n; i++) {
-			hs.add(sc.nextInt());
-		}
-		Iterator<Integer> it = hs.iterator();
-		while(it.hasNext()) {
-			System.out.println(it.next());
-		}
-	}
+
+public class C {
+    public static void main(String args[]) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        if (n == 0) {
+            System.exit(0);
+        }
+        int number = scanner.nextInt();
+        System.out.println(number);
+        for (int i = 0; i < n - 1; i++) {
+            int number1 = scanner.nextInt();
+            if (number != number1) {
+                number = number1;
+                System.out.println(number);
+            }
+        }
+        scanner.close();
+    }
 }

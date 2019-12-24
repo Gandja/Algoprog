@@ -10,29 +10,46 @@ E. Анаграммы
 */
 
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class E {
-	public static void main (String [] args) {
-		Scanner sc = new Scanner(System.in);
-		String first = sc.next();
-		String second = sc.next();
-		boolean yes = false;
-		if(first.length() != second.length()){
-			System.out.println("0");
-			System.exit(0);
-		}
-		for(int i = 0; i < first.length(); i++){
-			char symbol = first.charAt(i);
-			if(second.indexOf(symbol) >= 0) {
-				yes = true;
-			}else {
-				yes = false;
-			}
-		}
-		if(yes) {
-			System.out.println("1");
-		}else {
-			System.out.println("0");
-		}
-	}
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String firstStr = sc.nextLine();
+        String secondStr = sc.nextLine();
+        int firstLen = firstStr.length();
+        int secondLen = secondStr.length();
+        int n = 0;
+        if (firstLen != secondLen) {
+            System.out.println("0");
+            System.exit(0);
+        }
+        TreeMap<Character, Integer> first = new TreeMap<>();
+        TreeMap<Character, Integer> second = new TreeMap<>();
+        for (int i = 0; i < firstLen; i++) {
+            try {
+                n = first.get(firstStr.charAt(i));
+
+            } catch (Exception e) {
+                n = 0;
+            }
+            first.put(firstStr.charAt(i), n + 1);
+
+            try {
+                n = second.get(secondStr.charAt(i));
+
+            } catch (Exception e) {
+                n = 0;
+            }
+            second.put(secondStr.charAt(i), n + 1);
+
+        }
+        if (first.entrySet().containsAll(second.entrySet()) && second.entrySet().containsAll(first.entrySet())) {
+            System.out.println("1");
+        } else {
+            System.out.println("0");
+        }
+
+    }
+
 }
